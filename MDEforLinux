@@ -1,0 +1,54 @@
+{
+    "antivirusEngine":{
+        "enforcementLevel":"real_time",
+        "behaviourMonitoring":"disabled",
+        "enableFileHashComputation":false,
+        "scanAfterDefinitionUpdate": true,
+        "scanArchives": true, 
+        "maximumOnDemandScanThreads": 2,
+        "exclusionsMergePolicy":"merge",
+        "nonExecMountPolicy":"unmute",
+        "unmonitoredFilesystems": ["nfs"],
+        "threatTypeSettingsMergePolicy":"admin_only",
+        "scanResultsRetentionDays ": "90",
+        "scanHistoryMaximumItems":"10000",
+        "exclusions":[
+            {
+                "$type":"excludedPath",
+                "paths": "valid paths go here",
+                "isDirectory": false
+            },
+            {
+                "$type":"excludedFileExtension",
+                "extension": "valid file extensions e.g .pdf"
+            },
+            {
+                "$type":"excludedFileName",
+                "name": "valid paths go here"
+            }
+        ],
+        "allowedThreats":[
+            "List of threats as an array of strings"
+        ],
+        "disallowedThreatActions":[
+            "restore"
+         ],
+         "threatTypeSettings":[
+            {
+               "key":"potentially_unwanted_application",
+               "value":"block"
+            },
+            {
+               "key":"archive_bomb",
+               "value":"block"
+            }
+         ]
+      },
+      "cloudService":{
+         "enabled":true,
+         "diagnosticLevel":"required",
+         "cloudBlockLevel": "normal",
+         "automaticSampleSubmissionConsent":"safe",
+         "automaticDefinitionUpdateEnabled":true
+      }
+}
